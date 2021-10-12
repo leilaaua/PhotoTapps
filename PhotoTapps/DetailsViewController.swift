@@ -18,6 +18,17 @@ class DetailsViewController: UIViewController {
     }
     
     @IBAction func shareAction(_ sender: Any) {
+        
+        let shareController = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
+        
+        present(shareController, animated: true, completion: nil)
+        
+        shareController.completionWithItemsHandler = {
+            _, bool, _, _ in
+            if bool {
+                print("success")
+            }
+        }
     }
     
 
